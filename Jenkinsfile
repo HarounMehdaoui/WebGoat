@@ -89,8 +89,7 @@ pipeline{
 
         stage('SAST: Quality Gate') {
             steps {
-                // If it waits more than 5 minutes it auto-fails, else it checks results
-                timeout(time: 5, unit: 'MINUTES') {
+                timeout(time: 15, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
                 }
             }
@@ -172,4 +171,3 @@ pipeline{
 
 }
 // end pipeline
-
